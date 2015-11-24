@@ -1,4 +1,5 @@
 ﻿@model AssessmentRelations.Models.Client
+@using AssessmentRelations.Models
 
 @{
     ViewBag.Title = "Details";
@@ -29,6 +30,19 @@
         </dd>
 
     </dl>
+    @{int i = 0;}
+    @foreach (Project p in Model.Projects)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                Project @(i++)
+            </dt>
+
+            <dd>
+                @p.Name
+            </dd>
+        </dl>
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
