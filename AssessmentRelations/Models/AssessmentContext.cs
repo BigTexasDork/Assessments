@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace AssessmentRelations.Models
 {
@@ -12,6 +9,12 @@ namespace AssessmentRelations.Models
         public DbSet<Project> Projects { get; set; } 
         public DbSet<Assessment> Assessments { get; set; }
         public DbSet<Question> Questions { get; set; } 
-        public DbSet<Answer> Answers { get; set; } 
+        public DbSet<Answer> Answers { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
+
     }
 }
