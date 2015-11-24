@@ -17,7 +17,7 @@ namespace AssessmentRelations.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        ICollection<Project> Projects { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
 
         public void AddProject(Project p)
         {
